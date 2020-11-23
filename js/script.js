@@ -5,22 +5,15 @@
 'use strict';
 
 // объявление переменных
-let lang = 'ru';
+let lang = 'en';
 // различные способы объявления через массив 
 let arrWeek = [
 	['Monday', 'Tuesday', 'Wednesday','Thursday', 'Friday', 'Saturday', 'Sunday'],
 	['Понедельник', 'Вторник', 'Среда','Четверг', 'Пятница', 'Суббота', 'Воскресенье']
 ];
-let arrWeekEngName = 
-['Monday', 'Tuesday', 'Wednesday','Thursday', 'Friday', 'Saturday', 'Sunday'];
-let arrWeekRuName = 
-['Понедельник', 'Вторник', 'Среда','Четверг', 'Пятница', 'Суббота', 'Воскресенье'];
+let arrWeekEngName = ['Monday', 'Tuesday', 'Wednesday','Thursday', 'Friday', 'Saturday', 'Sunday'];
+let arrWeekRuName = ['Понедельник', 'Вторник', 'Среда','Четверг', 'Пятница', 'Суббота', 'Воскресенье'];
 
-// лучший на мой взгляд вариант
-let arrWeekMultLang = {
-  'en':arrWeekEngName,
-	'ru':arrWeekRuName
-}
 
 // 1. **********************************
 // используем if
@@ -43,10 +36,15 @@ switch (lang) {
     break;
 }
 
-// в зависимости от значения переменной lang получаем нужные данные 
-// без использования операторов условий
-// лучший вариант
-console.log(arrWeekMultLang[lang]);
+// объявляем массив (ассоциативный)
+let arrWeekMultLang = [];
+arrWeekMultLang.en = arrWeekEngName;
+arrWeekMultLang.ru = arrWeekRuName;
+// 2у мерный массив
+console.dir(arrWeekMultLang);
+// вывод в консоль недели ру/англ в зависимости от значения lang
+lang === 'en' ? console.log(arrWeekMultLang.en) : console.log(arrWeekMultLang.ru);
+
 
 // 2. **********************************
 
