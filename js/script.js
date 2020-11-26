@@ -4,9 +4,14 @@
 // используем строгий режим
 'use strict';
 
+// функция определения значения на число
+let isNumber = function(n) {
+  return !isNaN(parseFloat(n)) && isFinite(n)
+}
+// функция проверки на строку
 function strRevision(str) {
   // определяем тип аргумента
-  if (typeof(str) !== 'string') {
+  if ( typeof(str) !== 'string' || isNumber(str)) {
     return 'Error! Not a string type.';
   }
   // удаляем пробелы в начале и в конце строки 
